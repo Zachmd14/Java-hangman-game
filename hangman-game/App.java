@@ -15,6 +15,13 @@ public class App {
 		// itself
 		System.out.println(wordList[randomWord].length());
 		System.out.println(wordList[randomWord]);
+		System.out.println();
+
+		int wordLenght = wordList[randomWord].length();
+
+		for (int i = 0; i <= wordLenght; i++) {
+			System.out.print("_ ");
+		}
 
 	}
 }
