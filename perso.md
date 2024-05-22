@@ -1,4 +1,4 @@
-Certainly! Here are some hints to get you started with creating your Hangman game:
+# Roadmap :
 
 1. **Generate a Word:**
    - Decide how you'll select a word for the player to guess. You could:
@@ -47,5 +47,3 @@ Certainly! Here are some hints to get you started with creating your Hangman gam
 
 10. **Have Fun:**
     - Most importantly, have fun while creating your Hangman game! Experiment with different ideas, challenge yourself to improve your coding skills, and enjoy the process of building something from scratch.
-
-By following these hints, you'll be well on your way to creating an engaging Hangman game. If you have any specific questions or need further assistance with any aspect of your game development, feel free to ask!
