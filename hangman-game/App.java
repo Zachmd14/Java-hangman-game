@@ -1,5 +1,3 @@
-package com.hangmanegame;
-
 /**
  * Main file
  *
