@@ -7,8 +7,9 @@ import java.util.*;
 public class App {
 
 	// Declare variables as class-level fields
-	static String playerLetter;
-	static boolean playerLetterOk = false;
+	static String playerInput;
+	static char playerLetter;
+	static int i;
 
 	// create the scan method for getting inputs from user
 	static Scanner scan = new Scanner(System.in);
@@ -50,49 +51,45 @@ public class App {
 
 		// Create for loop that will print a '_' for each letter of the randomWord
 		for (int i = 0; i <= wordLenght; i++) {
-
 			System.out.print("_ ");
-
 			if (i == wordLenght) {
 				System.out.println("");
 				break;
 			}
 		}
 
-		// ask the player for a letter using the askLetter method defined under the main
-		// method
+		// call the askLetter method
 		askLetter();
 
-		// check if the playerLetter is in the word
-		int playerLetterIndex = word.indexOf(playerLetter);
-		int truePlayerIndex = playerLetterIndex + 1;
-
-		if (playerLetterIndex != -1) {
-			System.out.println("Your letter is in position " + truePlayerIndex + " in the word " + word);
-		} else {
-			System.out.println("Your letter " + playerLetter + " isn't in the word " + word);
-		}
-
+		// call the findLetterPosition method
+		findLetterPosition(word, playerLetter);
 	}
 
+	/**
+	 * Method
+	 * ask the player for a letter, then check if its actually one
+	 */
 	static void askLetter() {
 
-		while (playerLetterOk != true) {
+		// ask player for a letter
+		System.out.print("Enter your letter : ");
+		playerInput = scan.nextLine();
+		playerLetter = playerInput.charAt(0);
 
-			// ask player for a letter
-			System.out.print("Enter your letter : ");
-			playerLetter = scan.nextLine();
+		System.out.println("Your letter is " + playerLetter);
+	}
 
-			// check if the letter is actually a letter
-			playerLetterOk = false;
+	/**
+	 * Method
+	 * check if the playerLetter is contained in the word, if yes, give its index
+	 */
+	static void findLetterPosition(String word, char playerLetter) {
+		System.out.println("Searching for letter: " + playerLetter); // Debugging output
+		int i = word.indexOf(playerLetter); // Declare i locally
 
-			if (playerLetter.length() != 1) {
-				System.out.println("ERROR : you entered more than one letter");
-			} else {
-				System.out.println("your letter is " + playerLetter);
-				playerLetterOk = true;
-			}
-
+		while (i >= 0) {
+			System.out.println("Letter found at index: " + (i + 1));
+			i = word.indexOf(playerLetter, i + 1);
 		}
 	}
 
