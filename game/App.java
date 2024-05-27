@@ -8,8 +8,12 @@ public class App {
 
 	// Declare variables as class-level fields
 	static String playerInput;
-	static char playerLetter;
+	static char playerLetterChar;
 	static int i;
+	static int letterIndex;
+	static ArrayList<String> underscore;
+	static String playerLetterString;
+	static ArrayList<String> letters;
 
 	// create the scan method for getting inputs from user
 	static Scanner scan = new Scanner(System.in);
@@ -49,20 +53,22 @@ public class App {
 		// Create wordLenght variable
 		int wordLenght = wordList[randomWordIndex].length();
 
-		// Create for loop that will print a '_' for each letter of the randomWord
+		// Display "_" for each letter in word
+		underscore = new ArrayList<String>();
 		for (int i = 0; i <= wordLenght; i++) {
-			System.out.print("_ ");
-			if (i == wordLenght) {
-				System.out.println("");
-				break;
-			}
+			underscore.add("_");
 		}
+
+		for (String i : underscore) {
+			System.out.print(i);
+		}
+		System.out.println("");
 
 		// call the askLetter method
 		askLetter();
 
 		// call the findLetterPosition method
-		findLetterPosition(word, playerLetter);
+		findLetterPosition(word, playerLetterChar);
 	}
 
 	/**
@@ -74,23 +80,28 @@ public class App {
 		// ask player for a letter
 		System.out.print("Enter your letter : ");
 		playerInput = scan.nextLine();
-		playerLetter = playerInput.charAt(0);
+		playerLetterChar = playerInput.charAt(0);
+		playerLetterString = Character.toString(playerLetterChar);
 
-		System.out.println("Your letter is " + playerLetter);
+		System.out.println("Your letter is " + playerLetterChar);
 	}
 
 	/**
 	 * Method
 	 * check if the playerLetter is contained in the word, if yes, give its index
 	 */
-	static void findLetterPosition(String word, char playerLetter) {
-		System.out.println("Searching for letter: " + playerLetter); // Debugging output
-		int i = word.indexOf(playerLetter); // Declare i locally
+	static void findLetterPosition(String word, char playerLetterChar) {
+		System.out.println("Searching for letter: " + playerLetterChar); // Debugging output
+		int i = word.indexOf(playerLetterChar); // Declare i locally
 
 		while (i >= 0) {
 			System.out.println("Letter found at index: " + (i + 1));
-			i = word.indexOf(playerLetter, i + 1);
+			i = word.indexOf(playerLetterChar, i + 1);
 		}
+
+	}
+
+	static void letterList(int i, char playerLetterChar) {
 	}
 
 }
