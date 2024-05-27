@@ -3,16 +3,16 @@ import java.util.ArrayList;
 public class RandomWord {
 
 	// Instances
-	String word;
-	int wordLength;
-	int wordIndex;
-	ArrayList<String> playerGuess;
+	static String word;
+	static int wordLength;
+	static int wordIndex;
+	static ArrayList<String> letterGuesses;
 
 	// Constructor
 	RandomWord() {
 		word = SelectWord();
 		wordLength = word.length();
-		playerGuess = AddUnderscores(wordLength);
+		letterGuesses = AddUnderscores(wordLength);
 	}
 
 	/**
@@ -44,11 +44,11 @@ public class RandomWord {
 	 */
 
 	ArrayList<String> AddUnderscores(int wordLength) {
-		playerGuess = new ArrayList<String>();
+		letterGuesses = new ArrayList<String>();
 
 		for (int i = 0; i <= wordLength; i++) {
-			playerGuess.add("_");
+			letterGuesses.add("_");
 		}
-		return playerGuess;
+		return letterGuesses;
 	}
 }
