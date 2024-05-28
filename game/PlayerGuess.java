@@ -10,6 +10,7 @@ public class PlayerGuess {
 	Scanner scan;
 	static String guessLine;
 	static char guessLetter;
+	String word = mysteryWord.word;
 
 	// Constructor
 	PlayerGuess() {
@@ -22,5 +23,14 @@ public class PlayerGuess {
 		System.out.print("Enter yout letter : ");
 		guessLine = scan.nextLine();
 		guessLetter = guessLine.charAt(0);
+	}
+
+	void findLetterIndex(String word, char guessLetter) {
+		int i = word.indexOf(guessLetter);
+
+		while (i >= 0) {
+			System.out.println("Letter found at the index : " + (i + 1));
+			i = word.indexOf(guessLetter, i + 1);
+		}
 	}
 }

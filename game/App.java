@@ -19,5 +19,6 @@ public class App {
 		guess.askLetter();
 		System.out.println("your letter is " + guess.guessLetter); // print the letter the player entered
 
+		guess.findLetterIndex(guess.word, guess.guessLetter);
 	}
 }
