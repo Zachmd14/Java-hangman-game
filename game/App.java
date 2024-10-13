@@ -20,5 +20,12 @@ public class App {
 		System.out.println("your letter is " + guess.guessLetter); // print the letter the player entered
 
 		guess.findLetterIndex(guess.word, guess.guessLetter);
+
+		// print the list of tried letters
+		for (String i : guess.letterGuesses) {
+			System.out.print(i);
+		}
+		System.out.println("");
+
 	}
 }
